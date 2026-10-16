@@ -12,7 +12,8 @@
     "noise": {"label": "Sound effects (noise channel)", "request": "wNoiseSFXRequest", "playing": "wNoiseSFXPlaying", "ids": [1, 4], "max_seconds": 8}
   },
   "music_channels": {
-    "_doc": "per channel: its RAM struct, the offset of the pattern pointer (the note just played is the byte before it), the pattern list pointer, and the flag byte/bit set while a sound effect owns the channel",
+    "_doc": "per channel: its RAM struct, the offset of the pattern pointer (the note just played is the byte before it), the pattern list pointer, and the flag byte/bit set while a sound effect owns the channel. entry_restart: the list pointer stays on the entry being played, so a list that loops onto one entry shows as the pattern pointer jumping back to where that entry started",
+    "entry_restart": true,
     "structs": ["wChannel1", "wChannel2", "wChannel3", "wChannel4"],
     "pattern_ptr": 4,
     "list_ptr": 0,
